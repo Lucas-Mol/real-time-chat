@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 import LoginForm from './components/LoginForm';
-import { randomColor } from './utils/common.js';
 import Chat from './components/Chat/Chat.js';
 import chatAPI from './services/chatapi.js';
 
@@ -22,8 +21,7 @@ const App = () => {
     chatAPI.login(username, onMessageReceived)
 
     setUser({
-      username: username,
-      color: randomColor()
+      username: username
     })
   }
 
