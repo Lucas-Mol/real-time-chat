@@ -1,12 +1,11 @@
 import React from 'react';
 import Input from '../Input/Input.js';
 import Messages from '../Messages/Messages.js';
-import chatAPI from '../../services/chatapi.js';
 
-const Chat = ({user, messages,stompClient}) => {
+const Chat = ({user, messages, chatAPI}) => {
 
   let onSendMessage = (msgText) => {
-    chatAPI.sendMessage(stompClient, user.username, msgText)
+    chatAPI.sendMessage(user.username, msgText)
   }
 
   return (

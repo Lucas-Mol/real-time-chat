@@ -1,5 +1,31 @@
+import SockJS from 'sockjs-client';
+import Stomp from 'stompjs';
+
+const SOCKET_URL = 'http://192.168.1.10:8080/ws-chat';
+
+let stompClient
+
 const chatAPI = {
-    sendMessage: (stompClient, username, msgText) => {
+    connect: () => {
+        const socket = new SockJS(SOCKET_URL);
+        stompClient = Stomp.over(socket);
+      
+        stompClient.connect({})
+        stompClient.debug = null
+    },
+
+    login: (username, onMessageReceived) => {
+        stompClient.send("/app/newUser",
+        {},
+        JSON.stringify({
+          sender: username,
+          timestamp: new Date(),
+          type: 'JOIN'})
+      )
+      stompClient.subscribe('/topic/public', onMessageReceived);
+    },
+    
+    sendMessage: (username, msgText) => {
         if(msgText && stompClient) {
             var chatMessage = {
                 sender: username,
