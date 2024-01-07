@@ -24,6 +24,7 @@ public class ChatController {
                            SimpMessageHeaderAccessor headerAccessor) {
         headerAccessor.getSessionAttributes().put("username", message.getSender());
         message.setContent(message.getSender() + " has joined the chat!");
+        message.setType(MessageType.JOIN);
         return message;
     }
 }
