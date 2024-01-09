@@ -14,7 +14,7 @@ services:
     build:
       context: ./react-app
       args:
-        REACT_APP_SPRING_APP_HOST: # text here your IPv4 on your LAN to access through different devices on same network
+        REACT_APP_HOST_IP: # text here your IPv4 on your LAN to access through different devices on same network
     container_name: react-app
     depends_on:
       - spring-app
