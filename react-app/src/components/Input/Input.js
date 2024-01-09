@@ -22,6 +22,7 @@ const Input = ({ onSendMessage }) => {
                 placeholder="Enter your message and press ENTER"
                 onChange={e => onChange(e)}
                 margin="normal"
+                autoComplete='off'
                 value={text}
                 
                 onKeyPress={event => {
