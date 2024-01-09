@@ -1,7 +1,9 @@
 import SockJS from 'sockjs-client';
 import Stomp from 'stompjs';
 
-const SOCKET_URL = 'http://localhost:8080/ws-chat';
+
+const backendHost = process.env.REACT_APP_SPRING_APP_HOST || 'localhost'
+const SOCKET_URL = 'http://' + backendHost + ':8080/ws-chat';
 
 let stompClient
 
