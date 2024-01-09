@@ -8,7 +8,6 @@ const Messages = ({ messages, currentUser }) => {
         const className = messageFromMe ? "Messages-message currentUser" : "Messages-message";
         const textJoiningClassname = type === 'JOIN' ? 'text joining-message' : 'text';
         const msgID = sender + timestamp + Math.floor(Math.random() * 1000)
-        console.log(msgID)
 
         return (
             <li key={msgID} className={className}>

@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  spring-app:
+    build:
+      context: ./spring-app
+    container_name: spring-app
+    ports: 
+      - '8080:8080'
+    networks:
+      - default-network
+  
+  react-app:
+    build:
+      context: ./react-app
+    container_name: react-app
+    depends_on:
+      - spring-app
+    ports: 
+      - '3000:3000'
+    networks:
+      - default-network
+
+networks:
+  default-network:
+    driver: bridge

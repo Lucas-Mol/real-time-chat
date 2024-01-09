@@ -1,7 +1,7 @@
 import SockJS from 'sockjs-client';
 import Stomp from 'stompjs';
 
-const SOCKET_URL = 'http://192.168.1.10:8080/ws-chat';
+const SOCKET_URL = 'http://localhost:8080/ws-chat';
 
 let stompClient
 
